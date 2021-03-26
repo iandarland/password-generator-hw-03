@@ -16,15 +16,16 @@ generateBtn.addEventListener("click", writePassword);
 
 function writePassword(){
     var passLength = prompt("How many characters would you like your password to be?", "Must be at least 8 characters")
-    if(passLength < 8 || passLength != Number){
-        prompt("How long would you like your password to be?", "MUST BE AT LEAST 8 CHARACTERS!!!!!")
-        if(passLength < 8){
-            writePassword();
-        }
+    
+if(isNaN(passLength)){
+        writePassword()
+    }
+    if(passLength < 8){
+        writePassword()
     }
     var initPass = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y","z" ]
     var specChar = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"]
-    toUpper = function(x){
+    var toUpper = function(x){
         return x.toUpperCase();
     }
     var upperCase = initPass.map(toUpper);
@@ -43,7 +44,6 @@ function writePassword(){
         var initPass = initPass.concat(nums)
     }
 
-    var i = passLength
 
     var genPass = document.getElementById("password")
 
